@@ -1,21 +1,39 @@
 #include <mysql.h>
 #include <stdio.h>
-#pragma(lib,libmysql)
+#include<string.h>
+#include"model.h"
+#include"stu_file.h"
+#include"stu_file.c"
+#include"global.h"
+#include"stu_service.h"
+#include"stu_service.c"
 
-int main() {
-    MYSQL *con = mysql_init(NULL);
 
-  mysql_real_connect(con, "localhost", "root", "aaaa123", "aa11", 3306, NULL, 0);
 
-    char sql1[256] = "insert into players (id, name) values (10086, 'cwin')";
+int main(){
+  // initialize();
+  // addStu();
+  //  search();
+  // sortStu();
+  // display();
+  // struct students *temp=head;
 
-    if (mysql_query(con, sql1) != 0) {
-        fprintf(stderr, "mysql_query() failed: %s\n", mysql_error(con));
-        mysql_close(con);
-        return 1;
-    }
+  // linkMysql();
+  // for(int i=0;i<num;i++){
+  //   insertToFile(*temp);
+  //   temp=temp->next;
+  // }
+  // closeMysql();
 
-    mysql_close(con);
+  initialize();
+  linkMysql();
+  readFromFile(head);
+  closeMysql();
+  display();
+  addStu();
+  sortStu();
+  display();
 
-    return 0;
+
+ 
 }
