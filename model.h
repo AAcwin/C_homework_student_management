@@ -10,11 +10,11 @@ struct students
 {
     int id;
     char name[50];
-    // char gender;
-    // int age;
-    // double Cscore;
-    // double Mscore;
-    // double Escore;  
+    char gender;
+    int age;
+    double Cscore;
+    double Mscore;
+    double Escore;  
     struct students *next;
 };
 

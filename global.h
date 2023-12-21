@@ -5,7 +5,7 @@
 
 int count=1000;
 int num=0;
-extern struct students *head;
+struct students *head;
 
  
  
