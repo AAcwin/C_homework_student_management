@@ -14,7 +14,7 @@ void addStu(){
     temp=temp->next;
    }
    printf("\n*****Add student info*****\n");
-   while (decide)
+   while (decide)//输入数据
    {
     printf("\nstudent ID:");
    scanf("%d",&temp->id);
@@ -41,7 +41,7 @@ void addStu(){
    printf("Continue to add student info or not[y/n]:");
    num++;
    temp=temp->next;
-while(1){
+while(1){               //判断是否继续输入数据
    scanf(" %c",&judg);
    if(judg=='n'||judg=='N'){
     decide=0;
@@ -63,7 +63,7 @@ while(1){
 
 
 
-void display(){
+void display(){//遍历数据
     struct students *temp=head;
     printf("\n**********Display student info**********\n");
     printf("Student ID      Name       Gender       Age     Cscore      MatchScore      EnglishScore\n");
@@ -85,7 +85,7 @@ void search(){
     printf("\nThe student info is as follows:\n");
     printf("Student ID      Name       Gender       Age     Cscore      MatchScore      EnglishScore\n");
  for(int i=0;i<num;i++){
-        if(!strcmp(temp->name,targetName)){
+        if(!strcmp(temp->name,targetName)){//从单链表里找到名字相同的结构体
             end=1;
             printf("%d\t\t%s\t\t%c\t%d\t%lf\t%lf\t%lf\n",temp->id,temp->name,temp->gender,temp->age,
                                                                  temp->Cscore,temp->Mscore,temp->Escore);
@@ -106,12 +106,13 @@ void sortStu(){
     double temp_d;
     char temp_c;
 
-    for(int i=0;i<num-1;i++){
+    for(int i=0;i<num-1;i++){//冒泡排序法
+
         current=head;
         next=current->next;
         for (int j = 0; j < num-1-i; j++)
         {
-            if (current->id>next->id)
+            if (current->id>next->id)//节点的内容交换
             {                
                strcpy(temp_str,current->name);
                strcpy(current->name,next->name);

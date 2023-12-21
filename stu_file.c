@@ -11,18 +11,13 @@ void closeMysql(){
       mysql_close(con);
 }
 
-
-    
-
-
-
 void insertToFile(struct students stu) {   
     char sql1[256] ;
     sprintf(sql1,"replace into info1 (id,stu_name,gender,age,Cscore,Matchscore,Englishscore) values (%d,'%s','%c',%d,%lf,%lf,%lf)",
                                         stu.id,stu.name,stu.gender,stu.age,stu.Cscore,stu.Mscore,stu.Escore);
     
    
-    if (mysql_query(con, sql1) != 0) {
+    if (mysql_query(con, sql1) != 0) {//如果链接失败返回failed
         printf("mysql_query() failed: %s\n", mysql_error(con));
         mysql_close(con);
         return;
@@ -44,7 +39,7 @@ void AllinsertToFile(struct students *stu){
 
 
  void readFromFile(struct students *stu){
-    char *sql="SELECT * FROM info1";
+    char *sql="SELECT * FROM info1";//读取数据库
     if (mysql_query(con, sql) != 0) {
         printf("select failed: %s\n", mysql_error(con));
         mysql_close(con);
@@ -52,10 +47,10 @@ void AllinsertToFile(struct students *stu){
     }
     MYSQL_RES *res=mysql_store_result(con);
     int num_col=mysql_num_fields(res);
-    int num_row=mysql_num_rows(res);
+    int num_row=mysql_num_rows(res);//获得数据库的行列数
     num=mysql_num_rows(res);
     struct students *temp=stu;
- for(int i=0;i<num_row;i++){
+ for(int i=0;i<num_row;i++){//讲数据库的内容传入单链表
      MYSQL_ROW row=mysql_fetch_row(res);
         temp->id=atoi (row[0]);
         strcpy(temp->name,row[1]); 

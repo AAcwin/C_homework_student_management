@@ -9,7 +9,7 @@
 
 
 int main(){
-   initialize();
+   initialize();//连接数据库，创建单项链
    int result=1;
    int choice;
    printf("******************************\n");
@@ -39,27 +39,27 @@ int main(){
       break;
 
     case 1:
-      addStu();
+      addStu();//添加数据
       break;  
 
     case 2:
-      display();
+      display();//遍历数据
       break;
 
     case 3:
-      sortStu();
+      sortStu();//排序数据
       break;  
 
     case 4:
-      search();
+      search();//查询数据
       break;
 
     case 5:
-      AllinsertToFile(head);
+      AllinsertToFile(head);//保存数据
       break;
 
     case 6:
-      readFromFile(head);    
+      readFromFile(head);    //读取数据
       break;  
     
     default:
@@ -68,6 +68,6 @@ int main(){
 
     }
    }
-  closeMysql(); 
+  closeMysql(); //关闭数据库
   return 0;
 }
