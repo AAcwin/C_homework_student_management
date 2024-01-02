@@ -6,6 +6,10 @@
 #include"global.h"
 #include"stu_service.h"
 
+int count=1000;
+int num=0;
+struct students *head;
+
 
 
 int main(){

@@ -4,7 +4,23 @@
 #include"model.h"
 #include"global.h"
 
- 
+ struct students *creatLinked(){
+    struct students *head;
+    struct students *p;
+    head=(struct students*)malloc(sizeof(struct students));
+    p=(struct students*)malloc(sizeof(struct students));
+    head->next=p;
+    struct students *temp=head;
+    for (int i = 0; i < count; i++)
+    {
+         p=(struct students*)malloc(sizeof(struct students));
+         temp=temp->next;
+         temp->next=p;
+    }
+    p->next=NULL;
+
+    return head;  
+}
 
 void addStu(){  
     struct students *temp=head;

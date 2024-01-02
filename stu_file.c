@@ -3,7 +3,7 @@
 #include"global.h"
 #include"model.h"
 #include<string.h>
-#include"stu_file.h"
+
 
  MYSQL *con;
 
